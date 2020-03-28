@@ -1,4 +1,4 @@
-package kh.com.mysabay.sdk.utils;
+package kh.com.mysabay.sample.utils;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -14,7 +14,8 @@ import com.google.android.material.snackbar.Snackbar;
 
 import org.apache.commons.lang3.StringUtils;
 
-import kh.com.mysabay.sdk.R;
+import kh.com.mysabay.sdk.utils.FontUtils;
+import kh.com.mysabay.sdk.utils.LogUtil;
 
 /**
  * Created by PhirumTan on 26/01/2016.
@@ -33,8 +34,8 @@ public class MessageUtil {
         if (inflate == null) {
             Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
         } else {
-            View v = inflate.inflate(R.layout.view_custom_toast, null);
-            AppCompatTextView tv = v.findViewById(R.id.txt_message);
+            View v = inflate.inflate(kh.com.mysabay.sdk.R.layout.view_custom_toast, null);
+            AppCompatTextView tv = v.findViewById(kh.com.mysabay.sdk.R.id.txt_message);
             tv.setText(msg);
 
             Toast toast = new Toast(context);
@@ -77,7 +78,7 @@ public class MessageUtil {
         new MaterialDialog.Builder(context)
                 .typeface(FontUtils.getTypefaceKhmer(context), FontUtils.getTypefaceKhmer(context))
                 .content(msg)
-                .positiveText(R.string.label_close)
+                .positiveText(kh.com.mysabay.sdk.R.string.label_close)
                 .onPositive((dialog, which) -> dialog.dismiss())
                 .build().show();
 
@@ -116,8 +117,8 @@ public class MessageUtil {
                 .typeface(FontUtils.getTypefaceKhmerBold(context), FontUtils.getTypefaceKhmer(context))
                 .title((title > 0 && StringUtils.isBlank(context.getString(title))) ? 0 : title)
                 .content(msg).canceledOnTouchOutside(false)
-                .negativeText(txtNeg > 0 ? txtNeg : R.string.label_close)
-                .positiveText(txtPos == 0 ? R.string.ok : txtPos)
+                .negativeText(txtNeg > 0 ? txtNeg : kh.com.mysabay.sdk.R.string.label_close)
+                .positiveText(txtPos == 0 ? kh.com.mysabay.sdk.R.string.ok : txtPos)
                 .onNegative((dialog, which) -> {
                     if (negListener != null)
                         negListener.onClick(dialog, which);
