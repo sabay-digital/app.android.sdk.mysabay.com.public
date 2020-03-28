@@ -79,7 +79,3 @@ MySabaySDK.getInstance().showShopView(new PaymentListener() {
 * **Logout**
 
 Call ```MySabaySDK.getInstance().logout();```
-
-*  **Store and checkout**
-
-Call ```MySabaySDK.getInstance().showShopView();```
