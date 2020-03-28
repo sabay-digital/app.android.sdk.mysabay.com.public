@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         mViewBinding.viewPb.setVisibility(View.GONE);
         findViewById(R.id.show_login_screen).setOnClickListener(v -> {
             mViewBinding.viewPb.setVisibility(View.VISIBLE);
-            if (false) {
+            if (MySabaySDK.getInstance().isLogIn()) {
                 MessageUtil.displayDialog(v.getContext(), "User already login", "choose option below",
                         "Logout", "Get user information",
                         (dialog, which) -> {
