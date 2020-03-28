@@ -1,8 +1,6 @@
 ## Installation
 
-Add sabaysdk.aar to your lib directory
-
-Then add this dependency to your app build.gradle file.
+Add Jitpack to your project build.gralde file
 
 ```
 allprojects {
