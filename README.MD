@@ -26,7 +26,7 @@ MySabaySDK has default configurations with dark theme and sandbox mode to true.
 ```
 final SdkConfiguration configuration = new SdkConfiguration.Builder("APPLICATION_ID",
                 "{MySabayAppSecret}", "{LicenseKey}",
-                "{MySabayAppId}")
+                "{MerchantID}")
                 .setSdkTheme(SdkTheme.Dark) //default dark
                 .setToUseSandBox(true) //default to sandbox
                 .build();
