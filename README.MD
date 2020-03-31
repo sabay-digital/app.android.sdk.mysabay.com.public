@@ -21,18 +21,18 @@ dependencies {
 
 ## Configuration
 
-MySabaySDK has default configuration with dark theme and sandbox url.
+MySabaySDK has default configurations with dark theme and sandbox mode to true.
 
 ```
 final SdkConfiguration configuration = new SdkConfiguration.Builder("APPLICATION_ID",
-                "AppScret", "LecenseKey",
-                "MarchantId")
-                .setSdkTheme(SdkTheme.Dark) //defualt dark
-                .setToUseSandBox(true) //defualt sandbox
+                "{MySabayAppSecret}", "{LicenseKey}",
+                "{MySabayAppId}")
+                .setSdkTheme(SdkTheme.Dark) //default dark
+                .setToUseSandBox(true) //default to sandbox
                 .build();
         MySabaySDK.Impl.setDefaultInstanceConfiguration(configuration);
 ```
-> NOTE: MySabaySdk is need configuration
+> NOTE: MySabaySdk requires configuration before usage.
 
 ## Integration
 
