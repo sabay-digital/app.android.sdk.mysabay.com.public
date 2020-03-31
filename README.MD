@@ -15,9 +15,24 @@ Then add this dependency to your app build.gradle file.
 
 ```
 dependencies {
-    implementation ('kh.com.mysabay:sabaysdk:1.0.4')
+    implementation 'kh.com.mysabay:sabaysdk:1.0.6-b04'
 }
 ```
+
+## Configuration
+
+MySabaySDK has default configuration with dark theme and sandbox url.
+
+```
+final SdkConfiguration configuration = new SdkConfiguration.Builder("APPLICATION_ID",
+                "AppScret", "LecenseKey",
+                "MarchantId")
+                .setSdkTheme(SdkTheme.Dark) //defualt dark
+                .setToUseSandBox(true) //defualt sandbox
+                .build();
+        MySabaySDK.Impl.setDefaultInstanceConfiguration(configuration);
+```
+> NOTE: MySabaySdk is need configuration
 
 ## Integration
 
@@ -65,7 +80,7 @@ MySabaySDK.getInstance().showShopView(new PaymentListener() {
                     }
 
                     @Override
-                    public void purchaseAIPSuccess(Object dataAIP) {
+                    public void purchaseIAPSuccess(Object dataIAP) {
                         // handle android app in purchase here
                     }
 
