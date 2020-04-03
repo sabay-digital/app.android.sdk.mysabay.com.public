@@ -15,24 +15,25 @@ Then add this dependency to your app build.gradle file.
 
 ```
 dependencies {
-    implementation 'kh.com.mysabay:sabaysdk:1.0.6-b04'
+    implementation 'kh.com.mysabay:sabaysdk:1.0.6-b05'
 }
 ```
 
 ## Configuration
 
-MySabaySDK has default configurations with dark theme and sandbox mode to true.
+MySabaySDK has default configuration with dark theme and sandbox url.
 
 ```
-final SdkConfiguration configuration = new SdkConfiguration.Builder("APPLICATION_ID",
-                "{MySabayAppSecret}", "{LicenseKey}",
-                "{MerchantID}")
-                .setSdkTheme(SdkTheme.Dark) //default dark
-                .setToUseSandBox(true) //default to sandbox
-                .build();
+final SdkConfiguration configuration = new SdkConfiguration.Builder(BuildConfig.APPLICATION_ID,
+                "9c85c50a4362f687cd4507771ba81db5cf50eaa0b3008f4f943f77ba3ac6386b",
+                "", //license key
+                "", //marchant id
+                "SDK sample") // application name
+                .setSdkTheme(SdkTheme.Light) // theme app as a default is dark
+                .setToUseSandBox(true).build(); // default sandbox
         MySabaySDK.Impl.setDefaultInstanceConfiguration(configuration);
 ```
-> NOTE: MySabaySdk requires configuration before usage.
+> NOTE: MySabaySdk is need configuration
 
 ## Integration
 
