@@ -25,10 +25,10 @@ MySabaySDK has default configuration with dark theme and sandbox url.
 
 ```
 final SdkConfiguration configuration = new SdkConfiguration.Builder(BuildConfig.APPLICATION_ID,
-                "9c85c50a4362f687cd4507771ba81db5cf50eaa0b3008f4f943f77ba3ac6386b",
-                "", //license key
-                "", //marchant id
-                "SDK sample") // application name
+                "{AppSecret}", //9c85c50a4362f687cd4507771ba81db5cf50eaa0b3008f4f943f77ba3ac6386b
+                "{LicenseKey}", //license key
+                "{MerchantID}", //marchant id
+                "{AppName}") // application name to display on login screen
                 .setSdkTheme(SdkTheme.Light) // theme app as a default is dark
                 .setToUseSandBox(true).build(); // default sandbox
         MySabaySDK.Impl.setDefaultInstanceConfiguration(configuration);
