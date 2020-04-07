@@ -49,5 +49,5 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
     //dialog
     implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
-    implementation 'kh.com.mysabay:sabaysdk:1.0.6-b05'
+    implementation 'kh.com.mysabay:sabaysdk:1.0.6-b06'
 }
