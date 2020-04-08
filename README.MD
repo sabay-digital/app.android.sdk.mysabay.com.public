@@ -40,7 +40,7 @@ MySabaySDK has default configuration with dark theme and sandbox url.
 
 ```java
 final SdkConfiguration configuration = new SdkConfiguration.Builder(
-                                        BuildConfig.APPLICATION_ID, // mysabay app Id
+                                        "{MySabayAppId}", // mysabay app Id
                                         "SDK sample", //mysabay  app name
                                         "{MySabayAppSecret}", //MySabay App Secret
                                         "{LicenseKey}", // Android license key
