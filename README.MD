@@ -135,3 +135,7 @@ MySabaySDK.getInstance().showStoreView(new PaymentListener() {
 * **Logout**
 
 Call ```MySabaySDK.getInstance().logout();```
+
+## mySabay API
+### Server side validation
+In order for the CP server to validate the user access token received from the client as valid, mySabay also hosts pulic user api for fetching user profile and validating token. The API document is available [here](https://api-reference.mysabay.com/).
