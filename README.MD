@@ -5,7 +5,7 @@ This is the official MySabay SDK for native Android application. To use this SDK
 ## Create your application
 
 Create your MySabay application if you don't have one yet at [MySabay App Dashboard](https://kh.mysabay.com:8443/index.html) and copy your `appId` 
-and `appSecret` for the integration.
+and `appSecret` for the integration. 
 
 ## Installation
 
@@ -36,9 +36,9 @@ MySabaySDK has default configuration with dark theme and sandbox url.
 final SdkConfiguration configuration = new SdkConfiguration.Builder(
                 BuildConfig.APPLICATION_ID, // mysabay app Id
                 "SDK sample", //mysabay  app name
-                "9c85c50a4362f687cd4507771ba81db5cf50eaa0b3008f4f943f77ba3ac6386b", //MySabay App Secret
-                "", // license key and required in production
-                "") // merchant id and required in production
+                "{MySabayAppSecret}", //MySabay App Secret
+                "{LicenseKey}", // license key and required in production
+                "{MerchantID}") // merchant id and required in production
                 .setSdkTheme(SdkTheme.Light) // optional configure
                 .setToUseSandBox(true) // optional configure
                 .build();
@@ -88,12 +88,12 @@ to open login screen
 MySabaySDK.getInstance().showStoreView(new PaymentListener() {
                     @Override
                     public void purchaseMySabaySuccess(Object dataMySabay) {
-                        // handle mysabay payemtn success herer
+                        // handle mysabay payment success here
                     }
 
                     @Override
                     public void purchaseIAPSuccess(Object dataIAP) {
-                        // handle android app in purchase here
+                        // handle android in app purchase here
                     }
 
                     @Override
