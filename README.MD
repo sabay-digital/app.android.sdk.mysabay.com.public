@@ -7,6 +7,12 @@ This is the official MySabay SDK for native Android application. To use this SDK
 Create your MySabay application if you don't have one yet at [MySabay App Dashboard](https://kh.mysabay.com:8443/index.html) and copy your `appId` 
 and `appSecret` for the integration. 
 
+## Workflow
+The login and payment workflow is described with the following diagram for communication between CP app, server, mySabay SDK and mySabay API.
+
+### Login flow
+<img src="Images/user-login-flow.png">
+
 ## Installation
 
 Add Jitpack to your project build.gralde file
