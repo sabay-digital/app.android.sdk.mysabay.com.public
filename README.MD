@@ -30,26 +30,32 @@ Then add this dependency to your app build.gradle file.
 
 ```gradle
 dependencies {
-    implementation 'kh.com.mysabay:sabaysdk:1.0.6-b06'
+    implementation 'kh.com.mysabay:sabaysdk:1.0.6-b08'
 }
 ```
 
-## Configuration
+## Configuration and Permission Declaration
 
-MySabaySDK has default configuration with dark theme and sandbox url.
+MysabaySdk needs to be initialized before usage. You should only do this one time, so placing the initialization in your Application is a good idea. An example for this would be:
 
 ```java
-final SdkConfiguration configuration = new SdkConfiguration.Builder(
-                                        "{MySabayAppId}", // mysabay app Id
-                                        "SDK sample", //mysabay  app name
-                                        "{MySabayAppSecret}", //MySabay App Secret
-                                        "{LicenseKey}", // Android license key
-                                        "{MerchantID}") // Android merchant id
-                                        .setSdkTheme(SdkTheme.Light) // optional, default to dark
-                                        .setToUseSandBox(true) // optional, default to true
-                                        .build();
-                                        
-MySabaySDK.Impl.setDefaultInstanceConfiguration(configuration);
+[MyApplication.java]
+public class MyApplication extends Application {
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        //MySabaySDK has default configuration with dark theme and sandbox url.
+        final SdkConfiguration configuration = new SdkConfiguration.Builder(
+                        "{MySabayAppID}", // mysabay app Id
+                        "{App Name}", //mysabay  app name
+                        "{MySabayAppSecret}", //MySabay App Secret
+                        "{LincenseKey}", // license key
+                        "{MerchantID}") // merchant id
+                        .setSdkTheme(SdkTheme.Light)
+                        .setToUseSandBox(true).build();
+                MySabaySDK.Impl.setDefaultInstanceConfiguration(this, configuration);
+    }
+}
 ```
 > NOTE: MySabaySdk is need configuration
 
