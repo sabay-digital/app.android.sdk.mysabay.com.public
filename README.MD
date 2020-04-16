@@ -13,6 +13,9 @@ The login and payment workflow is described with the following diagram for commu
 ### Login flow
 <img src="Images/user-login-flow.png">
 
+### Payment flow
+<img src="Images/payment-flow.png">
+
 ## Installation
 
 Add Jitpack to your project build.gralde file
