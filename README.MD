@@ -2,6 +2,11 @@
 
 This is the official MySabay SDK for native Android application. To use this SDK, you can follow the guides below or download the test with the example project we have in this repository.
 
+## Version
+Sabay currently publishes two versions of android SDK:
+- One with Android-X support: 'kh.com.mysabay:sabaysdk:1.0.6-b09'
+- One with pre Android-X support: 'com.github.sabay-digital:sdk.android-old.mysabay.com:1.0.0-o'
+
 ## Create your application
 
 Create your MySabay application if you don't have one yet at [MySabay App Dashboard](https://kh.mysabay.com:8443/index.html) and copy your `appId` 
@@ -13,12 +18,9 @@ The login and payment workflow is described with the following diagram for commu
 ### Login flow
 <img src="Images/user-login-flow.png">
 
-### Payment flow
-<img src="Images/payment-flow.png">
-
 ## Installation
 
-Add Jitpack to your project build.gralde file
+1. Add Jitpack to your project build.gralde file
 
 ```gradle
 allprojects {
@@ -29,17 +31,45 @@ allprojects {
 }
 ```
 
-Then add this dependency to your app build.gradle file.
+2. Then add this dependency to your app build.gradle file.
 
 ```gradle
 dependencies {
-    implementation 'kh.com.mysabay:sabaysdk:1.0.6-b08'
+    implementation 'com.github.sabay-digital:sdk.android-old.mysabay.com:1.0.0-o'
 }
 ```
 
-## Configuration and Permission Declaration
+Add dataBinding to gradle
+```gradle
+android {
+    ...
+    dataBinding {
+        enabled = true
+    }
+}
+```
 
-MysabaySdk needs to be initialized before usage. You should only do this one time, so placing the initialization in your Application is a good idea. An example for this would be:
+Add compileOptions
+```grale    
+android {
+    ...
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+}
+```
+
+Add thease dependencies if you use android appcompat
+```gradle
+dependencies {
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
+}
+```
+
+3. Initialize SDK & declare Permissions:
+
+MysabaySdk needs to be initialized. You should only do this 1 time, so placing the initialization in your Application is a good idea. An example for this would be:
 
 ```java
 [MyApplication.java]
@@ -49,11 +79,11 @@ public class MyApplication extends Application {
         super.onCreate();
         //MySabaySDK has default configuration with dark theme and sandbox url.
         final SdkConfiguration configuration = new SdkConfiguration.Builder(
-                        "{MySabayAppID}", // mysabay app Id
-                        "{App Name}", //mysabay  app name
-                        "{MySabayAppSecret}", //MySabay App Secret
-                        "{LincenseKey}", // license key
-                        "{MerchantID}") // merchant id
+                        "55", // mysabay app Id
+                        "SDK sample", //mysabay  app name
+                        "9c85c50a4362f687cd4507771ba81db5cf50eaa0b3008f4f943f77ba3ac6386b", //MySabay App Secret
+                        "", // license key
+                        "") // merchant id
                         .setSdkTheme(SdkTheme.Light)
                         .setToUseSandBox(true).build();
                 MySabaySDK.Impl.setDefaultInstanceConfiguration(this, configuration);
@@ -158,3 +188,8 @@ To logout user session from the app use the following method:
 ## mySabay API
 ### Server side validation
 In order for the CP server to validate the user access token received from the client as valid, mySabay also hosts pulic user api for fetching user profile and validating token. The API document is available [here](https://api-reference.mysabay.com/).
+
+### Note 
+* This SDK supports Android with  minSdkVersion 21 only.
+
+
