@@ -23,16 +23,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        final SdkConfiguration configuration = new SdkConfiguration.Builder(
-                "55", // mysabay app Id
-                "SDK sample", //mysabay  app name
-                "9c85c50a4362f687cd4507771ba81db5cf50eaa0b3008f4f943f77ba3ac6386b", //MySabay App Secret
-                "", // license key
-                "") // merchant id
-                .setSdkTheme(SdkTheme.Light)
-                .setToUseSandBox(true).build();
-        MySabaySDK.Impl.setDefaultInstanceConfiguration(configuration);
-
         mViewBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         mViewBinding.viewPb.setVisibility(View.GONE);
         findViewById(R.id.show_login_screen).setOnClickListener(v -> {
@@ -42,11 +32,10 @@ public class MainActivity extends AppCompatActivity {
                         "Logout", "Get user information",
                         (dialog, which) -> {
                             MySabaySDK.getInstance().logout();
-                            mViewBinding.viewPb.setVisibility(View.GONE);
                         }, (dialog, which) -> MySabaySDK.getInstance().getUserProfile(info -> {
                             MessageUtil.displayDialog(v.getContext(), info);
-                            mViewBinding.viewPb.setVisibility(View.GONE);
                         }));
+                mViewBinding.viewPb.setVisibility(View.GONE);
             } else
                 MySabaySDK.getInstance().showLoginView(new LoginListener() {
                     @Override
@@ -128,6 +117,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         mViewBinding.viewPb.setVisibility(View.GONE);
         super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        MySabaySDK.getInstance().destroy();
     }
 
     @Override
