@@ -3,9 +3,25 @@
 This is the official MySabay SDK for native Android application. To use this SDK, you can follow the guides below or download the test with the example project we have in this repository.
 
 ## Version
-Sabay currently publishes two versions of android SDK:
-- One with Android-X support: 'kh.com.mysabay:sabaysdk:1.0.6-b09'
-- One with pre Android-X support: 'com.github.sabay-digital:sdk.android-old.mysabay.com:1.0.0-o'
+Sabay currently publishes three versions of android SDK:
+- Latest: 1.0.3
+    - Android-X: 'com.github.sabay-digital:sdk.android-x.mysabay.com:1.0.3'
+    - Old Android: 'com.github.sabay-digital:sdk.android-old.mysabay.com:1.0.3-o'
+        - Subscribe login to pass accessToken
+- 1.0.2
+    - Android-X: 'com.github.sabay-digital:sdk.android-x.mysabay.com:1.0.2'
+    - Old Android: 'com.github.sabay-digital:sdk.android-old.mysabay.com:1.0.2-o'
+    - Changes:
+        - Received accessToken, refreshToken, expire when webview loaded
+        - Received UUID when get userprofile completed
+
+- 1.0.0
+    - Android-X: 'com.github.sabay-digital:sdk.android-x.mysabay.com:1.0.0'
+    - Old Android: 'com.github.sabay-digital:sdk.android-old.mysabay.com:1.0.0-o'
+    - Changes:
+        - Received accessToken, refreshToken and expire when verify success
+        - Remove refreshToken and expire from UserProfile
+        - Create new one by using refreshToken to get new accessToken and expire
 
 ## Create your application
 
@@ -35,7 +51,7 @@ allprojects {
 
 ```gradle
 dependencies {
-    implementation 'com.github.sabay-digital:sdk.android-x.mysabay.com:1.0.2'
+    implementation 'com.github.sabay-digital:sdk.android-x.mysabay.com:1.0.3'
 }
 ```
 
