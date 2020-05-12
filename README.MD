@@ -34,6 +34,9 @@ The login and payment workflow is described with the following diagram for commu
 ### Login flow
 <img src="Images/user-login-flow.png">
 
+### Payment flow
+<img src="https://github.com/sabay-digital/app.ios.sdk.mysabay.com.public/raw/master/Images/payment-flow.png">
+
 ## Installation
 
 1. Add Jitpack to your project build.gralde file
