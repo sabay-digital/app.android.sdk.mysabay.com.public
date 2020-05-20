@@ -4,9 +4,16 @@ This is the official MySabay SDK for native Android application. To use this SDK
 
 ## Version
 Sabay currently publishes three versions of android SDK:
-- Latest: 1.0.3
+- Latest: 1.0.4
+    - Android-X: 'com.github.sabay-digital:sdk.android-x.mysabay.com:1.0.4'
+    - Old Android: 'com.github.sabay-digital:sdk.android-old.mysabay.com:1.0.4-o'
+    - Changes
+        - Callback after payment completed
+        - Handle payment success by type
+- 1.0.3
     - Android-X: 'com.github.sabay-digital:sdk.android-x.mysabay.com:1.0.3'
     - Old Android: 'com.github.sabay-digital:sdk.android-old.mysabay.com:1.0.3-o'
+    - Changes
         - Subscribe login to pass accessToken
 - 1.0.2
     - Android-X: 'com.github.sabay-digital:sdk.android-x.mysabay.com:1.0.2'
@@ -54,7 +61,7 @@ allprojects {
 
 ```gradle
 dependencies {
-    implementation 'com.github.sabay-digital:sdk.android-x.mysabay.com:1.0.3'
+    implementation 'com.github.sabay-digital:sdk.android-x.mysabay.com:1.0.4'
 }
 ```
 
@@ -152,15 +159,15 @@ to open login screen
 ```java
     MySabaySDK.getInstance().showStoreView(new PaymentListener() {
         @Override
-        public void purchaseMySabaySuccess(Object dataMySabay) {
-            // handle mysabay payment success here
+        public void purchaseSuccess(SubscribePayment data) {
+            if (data.getType().equals(Globals.APP_IN_PURCHASE)) {
+                // handle android in app purchase here
+            } else if (data.getType().equals(Globals.MY_SABAY)) {
+                // handle mysabay payment success here
+            } else {
+                // handle onetime payment here
+            }
         }
-
-        @Override
-        public void purchaseIAPSuccess(Object dataIAP) {
-            // handle android in app purchase here
-        }
-
         @Override
         public void purchaseFailed(Object dataError) {
             // hanlde error
