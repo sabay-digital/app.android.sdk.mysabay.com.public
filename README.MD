@@ -3,7 +3,7 @@
 This is the official MySabay SDK for native Android application. To use this SDK, you can follow the guides below or download the test with the example project we have in this repository.
 
 ## Version
-Sabay currently publishes three versions of android SDK:
+Sabay currently publishes four versions of android SDK:
 - Latest: 1.0.4
     - Android-X: 'com.github.sabay-digital:sdk.android-x.mysabay.com:1.0.4'
     - Old Android: 'com.github.sabay-digital:sdk.android-old.mysabay.com:1.0.4-o'
