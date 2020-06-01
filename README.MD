@@ -4,7 +4,12 @@ This is the official MySabay SDK for native Android application. To use this SDK
 
 ## Version
 Sabay currently publishes four versions of android SDK:
-- Latest: 1.0.4
+- Latest: 1.0.5
+    - Android-X: 'com.github.sabay-digital:sdk.android-x.mysabay.com:1.0.5'
+    - Old Android: 'com.github.sabay-digital:sdk.android-old.mysabay.com:1.0.5-o'
+    - Changes
+        - Add packageId filed into payment response
+- 1.0.4
     - Android-X: 'com.github.sabay-digital:sdk.android-x.mysabay.com:1.0.4'
     - Old Android: 'com.github.sabay-digital:sdk.android-old.mysabay.com:1.0.4-o'
     - Changes
