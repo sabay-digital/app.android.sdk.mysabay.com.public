@@ -60,8 +60,10 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void purchaseSuccess(SubscribePayment data) {
                         if (data.getType().equals(Globals.APP_IN_PURCHASE)) {
+                            LogUtil.info(data.getType(), data.data.toString());
                             MessageUtil.displayToast(v.getContext(), data.getType() + " Payment Completed");
                         } else if (data.getType().equals(Globals.MY_SABAY)) {
+                            LogUtil.info(data.getType(), data.data.toString());
                             MessageUtil.displayToast(v.getContext(), data.getType() + " Payment Completed");
                         } else {
                             LogUtil.info(data.getType(), data.data.toString());
